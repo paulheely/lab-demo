@@ -7,7 +7,7 @@
 
 # Invoke
 
-aws lambda invoke --function-name tca-lab-function --payload '{"key": "value"}' out
+aws lambda invoke --function-name tca-lab-function --payload '{"SrcLang": "ENG", "TgtLang": "GREEK", ""msg": "This is a test message from the TCA lab demo."}' out
 
 # Cleanup
 
