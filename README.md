@@ -3,11 +3,11 @@
 1. Deploy the tca_lab.yaml CloudFormation template to build out the lab environment and setup the Cloud9 environment.
 2. Create Lambda function
 3. Create zip file: zip my-deployment-package.zip lambda.py
-4. aws lambda create-function --function-name tca-lab-function --zip-file fileb://my-deployment-package.zip --handler lambda.lambda_handler --runtime python3.8 --role arn:aws:iam::826799620820:role/TCA-Demo-Lab-LambdaLabRole-1LZNX2F9Z2H3B
+4. aws lambda create-function --function-name tca-lab-function --zip-file fileb://my-deployment-package.zip --handler lambda.lambda_handler --runtime python3.8 --role arn:aws:iam::826799620820:role/TCA-Lab-Demo-LambdaLabRole-1GO91LUAGFXSM
 
 # Invoke
 
-aws lambda invoke --function-name tca-lab-function --payload '{"SrcLang": "ENG", "TgtLang": "GREEK", ""msg": "This is a test message from the TCA lab demo."}' out
+aws lambda invoke --function-name tca-lab-function --payload '{"SrcLang": "en", "TgtLang": "el", "msg": "This is a test message from the TCA lab demo."}' out
 
 # Cleanup
 
