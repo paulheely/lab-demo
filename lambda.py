@@ -18,7 +18,7 @@ def lambda_handler(event, context):
 
     response = polly_client.synthesize_speech(VoiceId=outVoice,
                                               OutputFormat='mp3',
-                                              Text=result)
+                                              Text=result.get('TranslatedText'))
 
     file = open('speech.mp3', 'wb')
     file.write(response['AudioStream'].read())
