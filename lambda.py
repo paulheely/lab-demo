@@ -25,7 +25,7 @@ def lambda_handler(event, context):
 
     taskId = response['SynthesisTask']['TaskId']
 
-    print "Task id is {} ".format(taskId)
+    print(taskId)
 
     return {
         "statusCode": 200,
