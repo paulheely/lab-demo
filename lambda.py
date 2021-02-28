@@ -8,6 +8,7 @@ def lambda_handler(event, context):
     srcLang = event["SrcLang"]
     tgtLang = event["TgtLang"]
     outVoice = event["OutVoice"]
+    outBucket = event["OutBucket"]
 
     translate = boto3.client(service_name='translate')
 
@@ -16,13 +17,15 @@ def lambda_handler(event, context):
 
     polly_client = boto3.client('polly')
 
-    response = polly_client.synthesize_speech(VoiceId=outVoice,
-                                              OutputFormat='mp3',
-                                              Text=result.get('TranslatedText'))
+    response = polly_client.start_speech_synthesis_task(VoiceId='Joanna',
+                                                        OutputS3BucketName=outbucket,
+                                                        OutputS3KeyPrefix='mypollyoutput',
+                                                        OutputFormat='mp3',
+                                                        Text=result.get('TranslatedText'))
 
-    file = open('speech.mp3', 'wb')
-    file.write(response['AudioStream'].read())
-    file.close()
+    taskId = response['SynthesisTask']['TaskId']
+
+    print "Task id is {} ".format(taskId)
 
     return {
         "statusCode": 200,
