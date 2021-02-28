@@ -7,7 +7,7 @@ def lambda_handler(event, context):
     msg = event["msg"]
     srcLang = event["SrcLang"]
     tgtLang = event["TgtLang"]
-    outVoice = event[OutVoice"]
+    outVoice = event["OutVoice"]
 
     translate = boto3.client(service_name='translate')
 
