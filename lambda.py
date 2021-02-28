@@ -17,7 +17,7 @@ def lambda_handler(event, context):
 
     polly_client = boto3.client('polly')
 
-    response = polly_client.start_speech_synthesis_task(VoiceId='Joanna',
+    response = polly_client.start_speech_synthesis_task(VoiceId=outVoice,
                                                         OutputS3BucketName=outBucket,
                                                         OutputS3KeyPrefix='mypollyoutput',
                                                         OutputFormat='mp3',
